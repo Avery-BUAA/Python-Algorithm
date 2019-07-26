@@ -1,1 +1,1 @@
-print("ergou")
+"""Python不存在这个东西吧。。。"""
