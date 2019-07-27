@@ -30,3 +30,25 @@ target = 13
 链接：https://leetcode-cn.com/problems/search-a-2d-matrix
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
+#思路：从右上角开始看，如果右上角的元素大于target，那右边那一列全部舍弃
+#如果右上角的元素小于target，则从这一列查找，即：行+1
+class Solution(object):
+    def searchMatrix(self, matrix, target):
+        """
+        :type matrix: List[List[int]]
+        :type target: int
+        :rtype: bool
+        """
+        if len(matrix) ==0:
+            return False
+        row,col = len(matrix)-1,len(matrix[0])-1
+        rows = 0
+        cols = col
+        while rows <=row and cols>=0:
+            if matrix[rows][cols] == target:
+                return True
+            elif matrix[rows][cols]>target:
+                cols -= 1
+            else:
+                rows +=1
+        return False
