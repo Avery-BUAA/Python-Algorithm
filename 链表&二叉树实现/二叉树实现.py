@@ -33,6 +33,13 @@ def preorder(root):
     print(root.elem)
     preorder(root.lchild)
     preorder(root.rchild)
+#深度遍历
+"""
+新建一个栈
+把root存入栈中
+如果左子节点不为空，存进去
+又子节点不为空，存进去
+"""
 def bread_travel(root):
     if root == None:
         return
