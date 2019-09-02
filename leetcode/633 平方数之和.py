@@ -11,20 +11,25 @@
 #
 # 输入: 3
 # 输出: False
+import math
+
+"""
+使用双指针一个从两端开始，一个增加，一个减少
+"""
 class Solution:
     def judgeSquareSum(self, c: int) -> bool:
-        x = c//2
-        ls = list(range(x+1))
-        i , j = 1 , len(ls)-1
-        while i < j :
-            temp = ls[i]**2 + ls[j]**2
-            if temp > c:
-                j -= 1
-            elif temp <c:
+        j=int(math.sqrt(c))
+        i =0
+        while i <= j :
+            if i**2 + j**2 > c:
+                j -=1
+            elif i**2 + j**2 < c:
                 i +=1
             else:
                 return True
         return False
+
+
 s = Solution()
 
 print(s.judgeSquareSum(5))
